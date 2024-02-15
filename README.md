@@ -1,4 +1,5 @@
 Naila Book Store
+
 Naila Book Store is a web application created using .NET MVC and Entity Framework Core. It allows users to explore and discover a diverse collection of books. Whether you're an avid reader or just looking for your next favorite book, Naila Book Store has something for everyone.
 
 ## Features
