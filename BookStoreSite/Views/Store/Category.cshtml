@@ -1,0 +1,39 @@
+﻿@using BookStoreSite.Models
+@model IEnumerable<BookStoreSite.Models.Book>
+
+@{
+    ViewData["Title"] = "Category";
+}
+
+
+
+
+
+<div>
+    <h2 style="margin: 2rem; text-align: center;">
+        All Books of @ViewBag.CategoryName
+    </h2>
+
+    <a asp-action="Index" class="btn btn-warning" style="margin:10px 0;"><i class="fas fa-arrow-left"></i> Back To Store</a>
+
+    <div class="row" style="margin: 2rem;">
+        @foreach (var book in Model)
+        {
+            <div class="col-3">
+                <div class="card my-2 store-card">
+                    <a class="a-cleanup" asp-controller="Store" asp-action="Details" asp-route-id="@book.Id">
+                        <img src="@book.ImageUrl" class="card-img-top card-img-custom">
+                        <div class="card-body" style="height: 6em;">
+                            <h5 class="mb-3" style="color: #063547;">@book.Title</h5>
+                            <p style="color: #063547; font-size: 0.9rem; margin:0 1rem;">@book.Author</p>
+                        </div>
+                        <div class="card-body" style="display:flex;justify-content:space-around">
+                            <span class="card-text" style="color: #063547;">@book.Price.ToString("c")</span>
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-primary float-right store-btn"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+</div> 

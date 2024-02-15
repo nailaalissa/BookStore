@@ -1,0 +1,61 @@
+﻿@using BookStoreSite.Models
+@model IEnumerable<BookStoreSite.Models.Book>
+
+
+@{
+    ViewData["Title"] = "Store";
+}
+
+<h2 class="my-4">Store</h2>
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <form asp-controller="Store" asp-action="Index" method="get" class="form-inline">
+            <div>
+                Filter search
+                <div class="my-1">
+                    <input type="text" name="searchString" placeholder="Title or Author" class="form-control-sm col-12" />
+                </div>
+                <div class="my-1">
+                    <input type="number" name="minPrice" step="1" placeholder="$min" class="form-control-sm col-5" />&nbsp;&#8212;&nbsp;<input type="number" name="maxPrice" step="1" placeholder="$max" class="form-control-sm col-5" />
+                </div>
+                <input type="submit" value="Filter" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-secondary">Clear</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row">
+    @foreach (var book in Model)
+    {
+        <div class="col-3">
+            <div class="card my-2 store-card">
+                <a class="a-cleanup" asp-controller="Store" asp-action="Details" asp-route-id="@book.Id">
+                    <img src="@book.ImageUrl" class="card-img-top card-img-custom">
+                    <div class="card-body" style="height: 6em;">
+                        <h5 class="mb-3" style="color: #063547;">@book.Title</h5>
+                        <p style="color: green; font-size: 0.9rem; margin:0 1rem;">@book.Author</p>
+                    </div>
+                    <div class="card-body" style="display:flex;justify-content:space-around">
+                        <span class="card-text" style="color: #063547;">@book.Price.ToString("c")</span>
+
+                        <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@book.Id" class="btn btn-success cart"> <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+                    </div>
+                </a>
+            </div>
+        </div>
+    }
+</div>
+
+
+<script>
+    function toggleSearchInput() {
+        let searchInput = document.getElementById('searchInput');
+        if (searchInput) {
+            searchInput.style.display = searchInput.style.display === 'none' ? 'block' : 'none';
+        }
+    }
+</script>

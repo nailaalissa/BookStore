@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naila Book Store</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/BookStoreSite.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/fonts/fontawesome/css/all.css" />
+    <link rel="stylesheet" href="~/css/myCss.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" integrity="sha384-6I0WBHYFiih6mG7a6J9ETfE2Ayx3YNVp+YsJ5iR24QE2QI0lsjzPb5cgJPz4Fz1T" crossorigin="anonymous">
+
+    <link rel="icon" href="images/favicon.png" type="image/gif" />
+  
+</head>
+<body>
+   
+<header>
+        <nav class="navbar navbar-expand-lg" data-bs-theme="light" style="background-color:#063547;color:white;">
+            <div class="container-fluid my-sm-0">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index" style="color:white"><img src="~/images/logo.jpg" style="width:100px"/>Book Store</a>
+               
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation" style="color:white">
+                    <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarColor03">
+                    <ul class="navbar-nav me-auto" style="gap:1rem; margin-left:2rem;">
+                        <li class="nav-item">
+                            <a class="nav-link headerlink" asp-area="" asp-controller="Home" asp-action="Index" style="color:white">
+                                Home
+                       
+                                <span class="visually-hidden">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link headerlink" asp-area="" asp-controller="Store" asp-action="Index" style="color:white">Our Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link headerlink" asp-area="" asp-controller="Home" asp-action="Blog" style="color: white;">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link headerlink" asp-area="" asp-controller="Home" asp-action="About" style="color:white;">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link headerlink" asp-area="" asp-controller="Home" asp-action="ContactUS" style="color:white;">Contact Us</a>
+                           
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Books" asp-action="Index" style="color:white;">Book list</a>
+                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link headerlink" asp-area="" asp-controller="Admin" asp-action="ListAllRoles" style="color:white;">Users Roles</a>
+                            </li>
+                        }
+                       
+                    </ul>
+                   
+                    
+                        <partial name="_LoginPartial" style="color:white;" />
+                    <a class="nav-link float-right headerlink" asp-area="" asp-controller="Cart" asp-action="Index" style="color:white;">
+                        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                        </a>
+                     
+                    
+                </div>
+            </div>
+        </nav>
+</header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <!-- info section -->
+
+    <section class="info_section layout_padding2">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-lg-3 info-col">
+                    <div class="info_detail">
+                        <h4>About Us</h4>
+                        <p>
+                            Welcome to Naila BookStore, your go-to destination for all things books! At Naila Book store, we are passionate about providing a diverse selection of books that cater to every reader's taste and interest.
+
+                        </p>
+                        <div class="info_social">
+                            <a href="#">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 info-col">
+                    <div class="info_contact">
+                        <h4>Address</h4>
+                        <div class="contact_link_box">
+                            <a href="">
+                                <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                <span> Location </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                <span> Call +01 1234567890 </span>
+                            </a>
+                            <a href="">
+                                <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <span> demo@gmail.com </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 info-col">
+                    <div class="info_contact">
+                        <h4>Newsletter</h4>
+                        <form action="#">
+                            <input type="text" placeholder="Enter email" />
+                            <button type="submit">Subscribe</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3 info-col">
+                    <div class="map_container">
+                        <div class="map">
+                         
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d144372.77614866325!2d12.851162990099796!3d55.57025208921287!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465305a574c491ff%3A0xd3a905dfbd4888e5!2zTWFsbcO2!5e0!3m2!1sen!2sse!4v1701383785247!5m2!1sen!2sse" width="300" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                      
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- end info section -->
+    <!-- footer section -->
+    <footer class="footer_section">
+        <div class="container">
+            <p>
+                &copy; <span id="displayYear"></span> All Rights Reserved By
+            </p>
+        </div>
+    </footer>
+    <!-- footer section -->
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/script/bootstrap.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+   
+</body>
+</html>
