@@ -1,7 +1,7 @@
 ﻿@model Order;
 
 
-<form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+@* <form asp-action="Checkout" method="post" class="form-horizontal" role="form">
     <h4>Please confirm your purchase</h4>
     <div asp-validation-summary="All" class="text-danger"></div>
 
@@ -10,7 +10,85 @@
             <input type="submit" class="btn btn-primary" value="Complete Order" />
         </div>
     </div>
-</form>
+</form> *@
+
+<form asp-action="Checkout" method="post" class="form-horizontal" role="form">
+
+    <h4>Please fill out the order form</h4>
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <!-- Customer Information -->
+    <div class="form-group">
+        <label asp-for=@User.Identity.Name class="col-md-2 control-label">Email:</label>
+        <div class="col-md-5">
+            <input asp-for=@User.Identity.Name class="form-control" />
+            <span asp-validation-for=@User.Identity.Name class="text-danger"></span>
+        </div>
+        <label class="col-md-2 control-label">First Name:</label>
+        <div class="col-md-5">
+           
+            <input  class="form-control" />
+            <span  class="text-danger"></span>
+        </div>
+        <label class="col-md-2 control-label">Last Name:</label>
+        <div class="col-md-5">
+            
+            <input class="form-control" />
+            <span class="text-danger"></span>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <label class="col-md-2 control-label">Address:</label>
+        <div class="col-md-5">
+            <input  class="form-control" />
+            <span  class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-md-2 control-label">City:</label>
+        <div class="col-md-5">
+            <input class="form-control" />
+            <span  class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label  class="col-md-2 control-label">Post Code:</label>
+        <div class="col-md-5">
+            <input  class="form-control" />
+            <span  class="text-danger"></span>
+        </div>
+    </div>
+
+
+
+    <!-- Payment Method -->
+    <div class="form-group">
+        <label class="col-md-2 control-label">Payment Method:</label>
+        <div class="col-md-5">
+            <select  class="form-control">
+                <option value="PayPal">PayPal</option>
+                <option value="Klarna">Klarna</option>
+                <option value="Card">Credit Card</option>
+                <!-- Add more payment options as needed -->
+            </select>
+            <span class="text-danger"></span>
+        </div>
+    </div>
+
+    
+        <h4>Please confirm your purchase</h4>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group" style="margin:10px;">
+            <div class="col-md-offset-2 col-md-5">
+                <input type="submit" class="btn btn-primary" value="Complete Order" />
+            </div>
+        </div>
+    </form>
 
 
 

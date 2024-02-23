@@ -2,6 +2,7 @@
 using BookStoreSite.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookStoreSite.Controllers
 {
@@ -10,6 +11,7 @@ namespace BookStoreSite.Controllers
     {
         private readonly BookStoreSiteContext _context;
         private readonly Cart _cart;
+      
         public OrderController(BookStoreSiteContext context, Cart cart)
         {
             _context = context;
@@ -64,5 +66,15 @@ namespace BookStoreSite.Controllers
             _context.Orders.Add(order);
             _context.SaveChanges();
         }
+        public IActionResult userOrders(Order order)
+        {
+            // Assuming you have a way to get the current user's orders
+            var userOrders = _context.Orders.Include(o => o.OrderItems)
+                .ThenInclude(oi => oi.Book)
+                .ToList();
+
+            return View(userOrders);
+        }
+
     }
 }

@@ -56,14 +56,26 @@
                                 <a class="nav-link headerlink" asp-area="" asp-controller="Admin" asp-action="ListAllRoles" style="color:white;">Users Roles</a>
                             </li>
                         }
+                        @if (User.IsInRole("User"))
+                        {
+
+                            <li class="nav-item">
+
+                                <a class="nav-link headerlink" asp-area="" asp-controller="Order" asp-action="userOrders" style="color:white;">Orders</a>
+                            </li>
+                        }
                        
                     </ul>
                    
                     
                         <partial name="_LoginPartial" style="color:white;" />
-                    <a class="nav-link float-right headerlink" asp-area="" asp-controller="Cart" asp-action="Index" style="color:white;">
+                
+                    <!-- Cart icon with count -->
+                    <a asp-action="Index" asp-controller="Cart" class="nav-link float-right headerlink cart-icon" style="color:white;">
                         <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                        </a>
+                        <span id="cartItemCount"></span>
+                    </a>
+
                      
                     
                 </div>
@@ -71,7 +83,7 @@
         </nav>
 </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3" style="min-height: 100vh;">
             @RenderBody()
         </main>
     </div>
@@ -153,7 +165,7 @@
     <footer class="footer_section">
         <div class="container">
             <p>
-                &copy; <span id="displayYear"></span> All Rights Reserved By
+                &copy; <span id="displayYear"></span> All Rights Reserved By Naila Alissa
             </p>
         </div>
     </footer>

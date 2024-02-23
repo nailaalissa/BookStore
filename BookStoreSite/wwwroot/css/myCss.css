@@ -974,4 +974,22 @@ a:focus {
         .footer_section p a {
             color: inherit;
         }
+
+/* Style for the cart icon */
+.cart-icon {
+    position: relative;
+    display: inline-block;
+}
+
+/* Style for the cart count */
+#cartItemCount {
+    position: absolute;
+    top: -8px; /* Adjust the top position as needed */
+    right: -8px; /* Adjust the right position as needed */
+    background-color: #063547; /* Background color of the count */
+    color: white; /* Text color of the count */
+    border-radius: 50%; /* Make it a circle */
+    padding: 4px 8px; /* Adjust padding as needed */
+    font-size: 12px; /* Adjust font size as needed */
+}
 /*# sourceMappingURL=style.css.map */

@@ -20,7 +20,7 @@
  @if (User.IsInRole("Admin"))
                         {
 <p>
-        <a asp-action="Create" class="btn btn-primary"><i class="fa fa-book" aria-hidden="true"></i> Add Book</a>
+        <a asp-action="Create" class="btn btn-success"><i class="fa fa-book" aria-hidden="true"></i> Add Book</a>
 </p>
                         }
 
@@ -117,7 +117,7 @@
                         </a>
                         @if (User.IsInRole("Admin"))
                         {
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">
                                 <i class="fas fa-pencil-alt" style="color:white;"></i>
                             </a>
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">

@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BookStoreSite.Controllers
 {
-    [Authorize]
+    //[Authorize]
     public class CartController : Controller
     {
         // [Authorize]
@@ -83,6 +83,12 @@ namespace BookStoreSite.Controllers
             _cart.ClearCart();
 
             return RedirectToAction("Index");
+        }
+        [AllowAnonymous]
+        public IActionResult GetCartItemsCount()
+        {
+            var cartItemsCount = _cart.CartItemsCount;
+            return Content(cartItemsCount.ToString());
         }
 
 

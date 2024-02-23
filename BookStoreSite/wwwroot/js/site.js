@@ -7,3 +7,27 @@
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
+
+
+    // Update cart items count dynamically
+    function updateCartItemCount() {
+        fetch('/Cart/GetCartItemsCount')
+            .then(response => response.text())
+            .then(count => {
+                if (count > 0) {
+                    document.getElementById('cartItemCount').innerText = count;
+                    document.getElementById('cartItemCount').style.backgroundColor = 'red'; // Replace with your desired background color
+                    document.getElementById('cartItemCount').style.color = 'white'; // Replace with your desired text color
+                } else {
+                    document.getElementById('cartItemCount').innerText = '';
+                }
+            })
+            .catch(error => console.error('Error updating cart items count:', error));
+    }
+
+    // Update cart items count when the page loads
+    document.addEventListener('DOMContentLoaded', updateCartItemCount);
+
+
+
+ 

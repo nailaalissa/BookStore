@@ -128,5 +128,13 @@ namespace BookStoreSite.Models
                 .Sum();
         }
 
+        public int CartItemsCount
+        {
+            get
+            {
+                return _context.CartItems.Where(ci => ci.CartId == Id).Sum(ci => ci.Quantity);
+            }
+        }
+
     }
 }

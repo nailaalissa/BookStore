@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace BookStoreSite.Controllers
 {
-    [Authorize(Roles = "Admin")]
+   
     public class BooksController : Controller
     {
         private readonly BookStoreSiteContext _context;
@@ -79,7 +79,7 @@ namespace BookStoreSite.Controllers
 
             return View(book);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Books/Create
         public IActionResult Create()
         {
@@ -116,8 +116,8 @@ namespace BookStoreSite.Controllers
             return View(book);
         }
 
-       
 
+        [Authorize(Roles = "Admin")]
 
         // GET: Books/Edit/5
         public async Task<IActionResult> Edit(int? id)
@@ -135,40 +135,7 @@ namespace BookStoreSite.Controllers
             return View(book);
         }
 
-        // POST: Books/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        /* [HttpPost]
-         [ValidateAntiForgeryToken]
-         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Description,Language,ISBN,DatePublished,Price,Author,ImageUrl")] Book book)
-         {
-             if (id != book.Id)
-             {
-                 return NotFound();
-             }
-
-             if (ModelState.IsValid)
-             {
-                 try
-                 {
-                     _context.Update(book);
-                     await _context.SaveChangesAsync();
-                 }
-                 catch (DbUpdateConcurrencyException)
-                 {
-                     if (!BookExists(book.Id))
-                     {
-                         return NotFound();
-                     }
-                     else
-                     {
-                         throw;
-                     }
-                 }
-                 return RedirectToAction(nameof(Index));
-             }
-             return View(book);
-         }*/
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Category,Description,Language,ISBN,DatePublished,Price,Author,ImageUrl")] Book book)
@@ -200,7 +167,7 @@ namespace BookStoreSite.Controllers
             }
             return View(book);
         }
-
+        [Authorize(Roles = "Admin")]
         // GET: Books/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
