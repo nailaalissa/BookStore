@@ -18,5 +18,5 @@ Naila Book Store is a web application created using .NET MVC and Entity Framewor
 ![image](https://github.com/nailaalissa/BookStore/assets/132508789/02399e01-cd77-4486-a268-5a87a65b3338)
 ![image](https://github.com/nailaalissa/BookStore/assets/132508789/7e6013f3-2679-41a4-b4cc-bfa0a1cd58e1)
 ![image](https://github.com/nailaalissa/BookStore/assets/132508789/2cfc7821-8c94-44fc-85da-73c6e1469772)
-
+![image](https://github.com/nailaalissa/BookStore/assets/132508789/906450db-fb48-44c7-92d9-d74d9b238d16)
 
